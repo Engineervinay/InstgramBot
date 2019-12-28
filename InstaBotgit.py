@@ -130,7 +130,7 @@ for hashtag in hashtag_list1:
 
         sleep(randint(25, 29))
 
-###created by vinay patil
+###Developed by vinay patil
 
 
 
