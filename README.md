@@ -25,5 +25,9 @@ The Bot is Developed Using Python 3
 - It will then like, comment and move to the next picture, in a 100 iterations loop (number can be adjusted)
 
 
-> Develped by [Vinay Patil](https://github.com/engineervinay/)  , if you want other O.S versions then do Check out version made by [Harsh Vardhan Goswami](https://github.com/theuitown/) https://github.com/theuitown/InstgramBot or you can check another branch in this project made by him 
+> Full Version Develped by [Vinay Patil](https://github.com/engineervinay/)  , if you want other O.S versions then do Check out version made by harsh https://github.com/theuitown/InstgramBot or you can check another branch(linuxcode) in this project made by him 
 Thanks to [harsh](https://github.com/theuitown/)
+
+## License & Copyright
+© [Vinay Patil](https://engineervinay.github.io/)
+Licensed under the [MIT License](License)
