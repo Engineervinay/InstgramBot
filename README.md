@@ -30,4 +30,5 @@ Thanks to [harsh](https://github.com/theuitown/)
 
 ## License & Copyright
 © [Vinay Patil](https://engineervinay.github.io/)
+
 Licensed under the [MIT License](License)
