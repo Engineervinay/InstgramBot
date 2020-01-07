@@ -2,6 +2,8 @@
 #the code is hosted on github.com/engineervinay if you wanted to make development in code visit profile and fork the code
 #if you have any query related to this code you can contact me on github @engineervinay
 
+
+
 from selenium.webdriver.common.keys import Keys #importing keys from selenium to enter the comments
 
 from time import sleep #time library for sleepcommand
@@ -9,7 +11,6 @@ from time import sleep #time library for sleepcommand
 from random import randint #library to provide random integer values between range
 
 from selenium import webdriver #the library for accesing chrome by our code
-
 
 
 #window to accept inputs username, password, and hashtags
@@ -25,7 +26,7 @@ chromedriver_path = 'C:/Users/Vinay/Downloads/chromedriver_win32/chromedriver.ex
 webdriver = wb.Chrome(executable_path=chromedriver_path)
 
 sleep(2)
-#opening instagram login page
+#opening instagram login page.
 webdriver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
 
 sleep(3)
@@ -34,13 +35,13 @@ sleep(3)
 
 username = webdriver.find_element_by_name('username')#finding username inputbox
 
-username.send_keys(user)#pasaing username
+username.send_keys(user)#passing username.
 
 password = webdriver.find_element_by_name('password')
 password.send_keys(passw)
 
 
-#finfing ligin button 
+#finding login button 
 button_login = webdriver.find_element_by_css_selector('#react-root > section > main > div > article > div > div:nth-child(1) > div > form > div:nth-child() > button')
 #clicking on button 
 button_login.click()
