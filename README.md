@@ -32,3 +32,8 @@ Thanks to [harsh](https://github.com/theuitown/)
 © [Vinay Patil](https://engineervinay.github.io/)
 
 Licensed under the [MIT License](License)
+
+## Support Me
+If you liked this, leave a star! :star:
+
+If you liked this and also liked my other work, be sure to follow me for more! :slightly_smiling_face:
