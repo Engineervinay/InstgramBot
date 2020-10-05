@@ -1,4 +1,6 @@
 # InstgramBot 
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
+
 Instagram Bot which increases your followers.The objective of this project is to build a bigger audience and as a plus, maybe drive some traffic to your website.The script isn’t as sophisticated as it could be, and I know there’s lots of room to improve it. 
 
 if you search for 'how to grow on Instagram' you can see the results like , engage with the peoples in your niche,use hashtags, etc. 
