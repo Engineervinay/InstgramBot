@@ -21,6 +21,10 @@ The Bot is Developed Using Python 3
  ## Requirment
   Python3,Selenium, a browser (in my case I’ll be using Chrome) and obviously, an Instagram account!
 
+## video:
+
+**[![Watch the video](https://img.youtube.com/vi/Gtufx3DYO68/maxresdefault.jpg)](https://youtu.be/Gtufx3DYO68)**
+
 ## Working:-
 **you have to customize paths in the code according to your browser**
 - Open a browser and login with your credentials
@@ -30,6 +34,8 @@ The Bot is Developed Using Python 3
 
 > Full Version Develped by [Vinay Patil](https://github.com/engineervinay/)  , if you want other O.S versions then do Check out version made by harsh https://github.com/theuitown/InstgramBot or you can check another branch(linuxcode) in this project made by him 
 Thanks to [harsh](https://github.com/theuitown/)
+
+
 
 ## License & Copyright
 © [Vinay Patil](https://engineervinay.github.io/)
