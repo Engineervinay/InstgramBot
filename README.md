@@ -22,6 +22,7 @@ The Bot is Developed Using Python 3
   Python3,Selenium, a browser (in my case I’ll be using Chrome) and obviously, an Instagram account!
 
 ## Working:-
+**you have to customize paths in the code according to your browser**
 - Open a browser and login with your credentials
 - For every hashtag in the hashtag list, it will open the page and click the first picture to open it
 - It will then like, comment and move to the next picture, in a 100 iterations loop (number can be adjusted)
