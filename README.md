@@ -21,9 +21,6 @@ The Bot is Developed Using Python 3
  ## Requirment
   Python3,Selenium, a browser (in my case I’ll be using Chrome) and obviously, an Instagram account!
 
-## video:
-
-**[![Watch the video](https://img.youtube.com/vi/Gtufx3DYO68/maxresdefault.jpg)](https://youtu.be/Gtufx3DYO68)**
 
 ## Working:-
 **you have to customize paths in the code according to your browser**
@@ -36,6 +33,9 @@ The Bot is Developed Using Python 3
 Thanks to [harsh](https://github.com/theuitown/)
 
 
+## video:
+
+**[![Watch the video](https://img.youtube.com/vi/Gtufx3DYO68/maxresdefault.jpg)](https://youtu.be/Gtufx3DYO68)**
 
 ## License & Copyright
 © [Vinay Patil](https://engineervinay.github.io/)
