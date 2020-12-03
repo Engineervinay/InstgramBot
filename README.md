@@ -34,7 +34,7 @@ Thanks to [harsh](https://github.com/theuitown/)
 
 
 ## video:
-**Click on image!!
+**Click on image!!**
 **[![Watch the video](https://img.youtube.com/vi/Gtufx3DYO68/maxresdefault.jpg)](https://youtu.be/Gtufx3DYO68)**
 
 ## License & Copyright
