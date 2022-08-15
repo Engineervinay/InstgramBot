@@ -46,3 +46,8 @@ Licensed under the [MIT License](License)
 If you liked this, leave a star! :star:
 
 If you liked this and also liked my other work, be sure to follow me for more! :slightly_smiling_face:
+
+## Contributors
+<a href="https://github.com/Engineervinay/InstagramBot/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Engineervinay/InstagramBot" />
+</a>
