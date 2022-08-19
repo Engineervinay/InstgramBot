@@ -1,137 +1,142 @@
-
-#the code is hosted on github.com/engineervinay if you wanted to make development in code visit profile and fork the code
-#if you have any query related to this code you can contact me on github @engineervinay
-
-
-
-from selenium.webdriver.common.keys import Keys #importing keys from selenium to enter the comments
-
-from time import sleep #time library for sleepcommand
-
-from random import randint #library to provide random integer values between range
-
-from selenium import webdriver #the library for accesing chrome by our code
-
-
-#window to accept inputs username, password, and hashtags
-print("enter username:-")
-user=input()
-passw=input("enter password:-")
-print("enter hashtags seperated by , :-")
-hash=input()
+import random
+import time
+from time import sleep
+from random import randint
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
-# Change this to your own chromedriver path!
-chromedriver_path = 'C:/Users/Vinay/Downloads/chromedriver_win32/chromedriver.exe' 
-webdriver = wb.Chrome(executable_path=chromedriver_path)
+def next_image():
+    try:
+        wait_xpath('//div/div/div/div/div[1]/div/div/div[2]/button')
+        driver.find_element(By.XPATH, '//div/div/div/div/div[1]/div/div/div[2]/button').click()
+    except:
+        wait_xpath('//div/div/div/div/div[1]/div/div/div[1]/button')
+        driver.find_element(By.XPATH, '//div/div/div/div/div[1]/div/div/div[1]/button').click()
+    sleep(3)
+
+
+def wait_xpath(xpath, sec: int = 20):
+    WebDriverWait(driver, sec).until(
+        EC.presence_of_element_located((By.XPATH, xpath))
+    )
+
+
+def wait_CSS(selector, sec: int = 20):
+    WebDriverWait(driver, sec).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, selector))
+    )
+
+
+def wait_NAME(name, sec: int = 20):
+    WebDriverWait(driver, sec).until(
+        EC.presence_of_element_located((By.NAME, name))
+    )
+
+# window to accept inputs username, password, and hashtags
+# user = input("enter username:")
+# passwrd = input("enter password:")
+# hashtags = input("enter hashtags seperated by , :")
+
+
+user = 'h_shadowpro'
+passwrd = 'Osama123'
+hashtags = 'python'
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+action = webdriver.ActionChains(driver)
 
 sleep(2)
-#opening instagram login page.
-webdriver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
+# opening instagram login page.
+driver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
 
-sleep(3)
+wait_NAME('username')
+username = driver.find_element(By.NAME, 'username')  # finding username inputbox
+username.send_keys(user)  # passing username.
 
+wait_NAME('password')
+password = driver.find_element(By.NAME, 'password')
+password.send_keys(passwrd)
+# finding login button
 
-
-username = webdriver.find_element_by_name('username')#finding username inputbox
-
-username.send_keys(user)#passing username.
-
-password = webdriver.find_element_by_name('password')
-password.send_keys(passw)
-
-
-#finding login button 
-button_login = webdriver.find_element_by_css_selector('#react-root > section > main > div > article > div > div:nth-child(1) > div > form > div:nth-child() > button')
-#clicking on button 
+wait_CSS('#loginForm > div > div:nth-child(3) > button')
+button_login = driver.find_element(By.CSS_SELECTOR,
+                                   '#loginForm > div > div:nth-child(3) > button')
 button_login.click()
 
-sleep(3)
+try:
+    wait_xpath('//*[@id="slfErrorAlert"]', 3)
+    driver.find_element(By.XPATH, '//*[@id="slfErrorAlert"]')
+    print("Too many login Trials, exit")
+    quit()
+except:
+    pass
 
+#  check if we are logged in
 
-#clicking on not now button which occurs when we logged in
-notnow = webdriver.find_element_by_css_selector('body > div.RnEpo.Yx5HN > div > div > div.mt3GC > button.aOOlW.HoLwm')
+wait_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[3]')
 
-notnow.click()
+# clicking on not now button which occurs when we logged in # Not Always
+try:
+    notnow = driver.find_element(By.CSS_SELECTOR, 'body > div.RnEpo.Yx5HN > div > div > div.mt3GC > button.aOOlW.HoLwm')
+    notnow.click()
+except:
+    pass
 
+hashtag_list = hashtags.strip().split(",")  # remove any spaces with strip()
+for hashtag in hashtag_list:
 
+    driver.get('https://www.instagram.com/explore/tags/' + hashtag + '/')
 
-hashtag_list1=hash.split(",")
-for hashtag in hashtag_list1:
+    for i in range(4):  # sometimes the page doesn't load currently, so we refresh it
+        try:
+            wait_xpath('//article/div[1]/div/div/div[1]/div[1]')
+        except:
+            driver.refresh()
+            if i == 3:
+                exit()
 
-    sleep(5)
-    webdriver.get('https://www.instagram.com/explore/tags/' + hashtag + '/')
-
-    sleep(5)
-
-    first_thumbnail = webdriver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[1]/div/div/div[1]/div[1]/a/div/div[2]')
+    first_thumbnail = driver.find_element(By.XPATH,
+                                          '//article/div[1]/div/div/div[1]/div[1]')
     first_thumbnail.click()
-
     sleep(randint(1, 2))
 
+    for x in range(1, 100):
 
+        # Liking the picture
+        sleep(3)
+        # finding the like button using xpath
 
-    for x in range(1, 200):
+        try:  # if the photo is already liked => skip
+            wait_xpath('//article/div/div[2]/div/div/div[2]/section[1]/span[1]/button/div[2]/span', 5)
+            button_like = driver.find_element(By.XPATH,
+                                              '//article/div/div[2]/div/div/div[2]/section[1]/span[1]/button/div[2]/span')
+            button_like.click()  # cliking on founded like button to like photo
+        except:
+            next_image()
+            continue
 
-            #username = webdriver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/header/div[2]/div[1]/div[1]/h2/a').text
-            #if username not in prev_user_list:
-            # If we already follow, do not unfollow
+        comm_prob = randint(1, 2)
+        # to enable commenting box
+        driver.find_element(By.XPATH, '//article/div/div[2]/div/div/div[2]/section[3]/div/form/textarea').click()
+        # clicking on comment box
+        comment_box = driver.find_element(By.XPATH,
+                                          '//article/div/div[2]/div/div/div[2]/section[3]/div/form/textarea')
+        sleep(1)
+        # code to post random comments
+        list_of_comments = ['So cool! :)', 'Mind Blowing!!', 'Nice work :)', 'Really cool!']
 
-            #if webdriver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/header/div[2]/div[1]/div[2]/button').text == 'Follow':
+        comment = random.choice(list_of_comments)
+        comment_box.send_keys(comment)
+        sleep(randint(1, 3))
+        comment_box.send_keys(Keys.ENTER)  # Enter to post comment
+        sleep(3)
+        next_image()
 
-            #webdriver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/header/div[2]/div[1]/div[2]/button').click()
-
-            #new_followed.append(username)
-
-            #followed += 1
-
-            # Liking the picture
-        sleep(randint(3,7))
-        #finding the like button using xpath
-        button_like = webdriver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button/span')
-
-        button_like.click()#cliking on founded like button to like photo 
-
-        comm_prob =randint(1,4)
-        #to enable commenting box
-        webdriver.find_element_by_xpath('/html/body/div[]/div[2]/div/article/div[2]/section[3]/div/form/textarea').click()
-        #clicking on comment box
-        comment_box = webdriver.find_element_by_xpath('/html/body/div[]/div[2]/div/article/div[2]/section[3]/div/form/textarea')
-        sleep(randint(3,7))
-        #code to post random comments
-        if comm_prob == 1:   
-            #this statement will send the comment to the comment box
-            comment_box.send_keys('Really cool!')
-            sleep(5)
-
-        elif comm_prob == 2:
-
-            comment_box.send_keys('Nice work :)')
-
-            sleep(5)
-
-        elif comm_prob == 3:
-
-            comment_box.send_keys('Nice gallery!!')
-
-            sleep(5)
-
-        elif comm_prob == 4:
-
-            comment_box.send_keys('So cool! :)')
-
-            sleep(5)
-
-                
-        sleep(randint(4,6))
-        comment_box.send_keys(Keys.ENTER)# Enter to post comment
-        sleep(randint(22, 28))
-
-        webdriver.find_element_by_link_text('Next').click()#clicking on next for next photo
-
-        sleep(randint(25, 29))
-
-###Developed by vinay patil
-
-
-
+# Developed by vinay patil
