@@ -1,3 +1,6 @@
+# the code is hosted on github.com/engineervinay if you wanted to make development in code visit profile and fork the code
+# if you have any query related to this code you can contact me on github @engineervinay
+
 import random
 import time
 from time import sleep
